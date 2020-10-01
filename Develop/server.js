@@ -25,19 +25,20 @@ app.get("/notes", function(req, res) {
     res.sendFile(path.join(__dirname, "./public/notes.html"))
 });
 
-//Display notes
+//Display notes. 
+//Notes are displaying, but can't click to display text. Might need to assign IDs now?
 app.get("/api/notes", function(req, res){
     notes = fs.readFileSync("./db/db.json", "UTF-8", err => {
         if (err)
         throw (err)
     })
     notes = JSON.parse(notes);
-    console.log(notes);
+    //console.log(notes);
     return res.json(notes);
 
 });
 
-//For loop for notes
+//For loop for notes. Not sure what to do with this yet.
 function noteID() {
     for (i=0; i < notes.length; i++) {
         notes[i].id = i;
@@ -47,13 +48,16 @@ function noteID() {
 //Post notes
 app.post("/api/notes", function(req, res){
     const addNote = req.body
+    addNote.id = notes.length
     db.push(addNote)
+    
     const newVar = JSON.stringify(db)
     fs.writeFile("./db/db.json", newVar, err => {
         if (err)
         throw err;
     })
-    res.json(notes)
+    //console.log(notes.req.params)
+    res.json(newVar)
 });
 
 
