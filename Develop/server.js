@@ -27,17 +27,35 @@ app.get("/notes", function(req, res) {
 
 //Display notes
 app.get("/api/notes", function(req, res){
-    notes = fs.readFileSync("./db/db.json", "UTF8", err => {
+    notes = fs.readFileSync("./db/db.json", "UTF-8", err => {
         if (err)
         throw (err)
     })
     notes = JSON.parse(notes);
-    res.json(notes);
     console.log(notes);
+    return res.json(notes);
+
 });
 
+//For loop for notes
+function noteID() {
+    for (i=0; i < notes.length; i++) {
+        notes[i].id = i;
+    }
+}
+
 //Post notes
-//app.post("/api/notes", function(req,))
+app.post("/api/notes", function(req, res){
+    const addNote = req.body
+    db.push(addNote)
+    const newVar = JSON.stringify(db)
+    fs.writeFile("./db/db.json", newVar, err => {
+        if (err)
+        throw err;
+    })
+    res.json(notes)
+});
+
 
 
 //writetofile include db in fs.writeFile()
