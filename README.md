@@ -6,10 +6,10 @@ This application was designed for easy note-keeping. After clicking the "Get Sta
 
 Check out the deployed application on [Heroku](https://my-note-taker-homework.herokuapp.com/).
 
-![screenshot]()
+![screenshot](https://github.com/laurenbrown108/note-taker/blob/master/notetakerhome.png?raw=true)
 
 You can write a new note and save to the left sidebar by clicking the save icon that appears after the note title and text are entered.
-![screenshot]()
+![screenshot](https://github.com/laurenbrown108/note-taker/blob/master/firstnote.png?raw=true)
 
 To access an old note, simply click the title in the left sidebar. To delete a note, click the delete icon located next to the title in the sidebar. If you refresh, the previously saved notes will still appear.
 
